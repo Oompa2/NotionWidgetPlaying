@@ -14,9 +14,6 @@
       flex-direction: column;
       background-color: #63C5EF;
     }
-    .maincontainer {
-    
-    }
     .container {
       background: #fafafa;
       height: 10px;
@@ -25,7 +22,7 @@
       border-radius: 10px;
     }
     .text {
-      margin: 0.5em auto;
+      margin: 0.2em auto 0em;
     }
     .bar-container {
       background: #f0f0f0;
@@ -111,15 +108,34 @@
    </body>
   
    <script>
+   
+   
     var btn = document.getElementById('btn');
     var bar1 = document.getElementById('bar1');
-    var txt = document.getElementById('text1');
-    var count = 0;
+    var bar2 = document.getElementById('bar2');
+    var bar3 = document.getElementById('bar3');
+    var txt1 = document.getElementById('text1');
+    var txt2 = document.getElementById('text2');
+    var txt3 = document.getElementById('text3');
+    
+    //bar2 code 
+    var yearPercent = 0;
+    var now = new Date();
+    var dayOfYear = 0;
+    //calculate how many days through the year it is. stolen from https://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366/40975730#40975730
+    dayOfYear = (Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(now.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
+    yearPercent = Math.round((dayOfYear / 366) *100);
+    
+	txt2.innerHTML = yearPercent + '%' + ' through the year';
+    bar2.style.width = yearPercent + '%'; 
+    //bar3 code
+    
     // Listen for an event on the button
     // Increase the width of the bar by 10 percent(10%)
+    var count = 0;
     btn.addEventListener('click', ()=>{
       bar1.style.width = count + '%';
-      txt.innerHTML = count + '%';
+      txt1.innerHTML = count + '%';
       if(count === 100){
         count = 0;  
       }
