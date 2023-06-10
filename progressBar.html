@@ -12,7 +12,10 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-         background-color: #fff;
+      background-color: #63C5EF;
+    }
+    .maincontainer {
+    
     }
     .container {
       background: #fafafa;
@@ -22,7 +25,7 @@
       border-radius: 10px;
     }
     .text {
-      margin: 2em auto;
+      margin: 0.5em auto;
     }
     .bar-container {
       background: #f0f0f0;
@@ -65,44 +68,64 @@
   </head>
   
   <body>
+  
     <!-- Text -->
-    <div class="text" id="text">0%</div>
+    <div class="text" id="text1">0%</div>
     <!-- End Of Text -->
 
-    <!-- Container -->
+    <!-- Container1 -->
     <div class="container">
         <div class="bar-container">
-          <div class="bar" id="bar"></div>
+          <div class="bar" id="bar1"></div>
         </div>
-     <div>
-    <!-- End Of Container -->
+     </div>
+    <!-- End Of Container1 -->
+    <!-- Text2 -->
+    <div class="text" id="text2">0%</div>
+    <!-- End Of Text -->
+
+    <!-- Container2 -->
+    <div class="container">
+        <div class="bar-container">
+          <div class="bar" id="bar2"></div>
+        </div>
+     </div>
+    <!-- End Of Container2 -->
+    
+    <!--third bar-->
+    <!-- Text3 -->
+    <div class="text" id="text3">0%</div>
+    <!-- End Of Text3 -->
+
+    <!-- Container3 -->
+    <div class="container">
+        <div class="bar-container">
+          <div class="bar" id="bar3"></div>
+        </div>
+     </div>
+    <!-- End Of Container3 -->
 
     <!--  Button   -->
     <button class="btn" type="button" id="btn">+10</button>
     <!--   End Of Button  -->
    </body>
-   
-   
   
-   
-   
    <script>
-   
-   var btn = document.getElementById('btn');
-var bar = document.getElementById('bar');
-var txt = document.getElementById('text');
-var count = 0;
-// Listen for an event on the button
-// Increase the width of the bar by 10 percent(10%)
-btn.addEventListener('click', ()=>{
-  bar.style.width = count + '%';
-  txt.innerHTML = count + '%';
-  if(count === 100){
-    count = 0;  
-  }
-  else {
-      count = count + 10;
-  }
-});
+    var btn = document.getElementById('btn');
+    var bar1 = document.getElementById('bar1');
+    var txt = document.getElementById('text1');
+    var count = 0;
+    // Listen for an event on the button
+    // Increase the width of the bar by 10 percent(10%)
+    btn.addEventListener('click', ()=>{
+      bar1.style.width = count + '%';
+      txt.innerHTML = count + '%';
+      if(count === 100){
+        count = 0;  
+      }
+      else {
+          count = count + 10;
+      }
+    });
   </script>
-   </html>
+ </html>
