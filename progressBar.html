@@ -39,28 +39,6 @@
       border-radius: 10px;
       transition: width 400ms;
     }
-    .btn {
-      outline: none;
-      margin: 2em auto;
-      border: none;
-      height: 50px;
-      width: 50px;
-      border-radius: 100%;
-      padding: 1em;
-    background: #11998e;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      color: #fff;
-      box-shadow: 0 10px 10px 0 rgba(0,0,0,0.30);
-      cursor: pointer;
-      transition: transform 400ms;
-      font-family: Arial, sans-serif;
-      font-weight: 600;
-      text-align: center;
-    }
-    .btn:hover {
-      transform: translateY(-10px);
-    }
     </style>
   </head>
   
@@ -101,16 +79,9 @@
         </div>
      </div>
     <!-- End Of Container3 -->
-
-    <!--  Button   -->
-    <button class="btn" type="button" id="btn">+10</button>
-    <!--   End Of Button  -->
    </body>
   
    <script>
-   
-   
-    var btn = document.getElementById('btn');
     var bar1 = document.getElementById('bar1');
     var bar2 = document.getElementById('bar2');
     var bar3 = document.getElementById('bar3');
@@ -118,30 +89,26 @@
     var txt2 = document.getElementById('text2');
     var txt3 = document.getElementById('text3');
     
-    //bar2 code 
-    var yearPercent = 0;
     var now = new Date();
+    var yearPercent = 0;
+    var monthPercent = 0;
+    var quarterPercent =0;
     var dayOfYear = 0;
-    //calculate how many days through the year it is. stolen from https://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366/40975730#40975730
+    //get "day zero" of the next month which means it's actually the last day of the current month.
+    var daysInTheMonth = new Date( now.getFullYear(), now.getMonth()+1, 0).getDate();    
+    
+    //bar1 code
+    //round - makes it a full number. getDate - gives you the current date within the month.
+	monthPercent = (Math.round((now.getDate()/daysInTheMonth)*100));
+    txt1.innerHTML = monthPercent + '%' + ' through the month';
+    bar1.style.width = monthPercent + '%';
+    
+    //bar3 code 
+    //calculate how many days through the year it is. Amended from https://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366/40975730#40975730
     dayOfYear = (Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(now.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
     yearPercent = Math.round((dayOfYear / 366) *100);
     
-	txt2.innerHTML = yearPercent + '%' + ' through the year';
-    bar2.style.width = yearPercent + '%'; 
-    //bar3 code
-    
-    // Listen for an event on the button
-    // Increase the width of the bar by 10 percent(10%)
-    var count = 0;
-    btn.addEventListener('click', ()=>{
-      bar1.style.width = count + '%';
-      txt1.innerHTML = count + '%';
-      if(count === 100){
-        count = 0;  
-      }
-      else {
-          count = count + 10;
-      }
-    });
+	txt3.innerHTML = yearPercent + '%' + ' through the year';
+    bar3.style.width = yearPercent + '%'; 
   </script>
  </html>
